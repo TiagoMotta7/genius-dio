@@ -56,7 +56,7 @@ let click = (color) => {
   createColorElement(color).classList.add('selected');
 
   setTimeout(() => {
-   elementColor(color).classList.remove('selected');
+   createColorElement(color).classList.remove('selected');
    checkOrder();
   },250) 
 }
@@ -89,16 +89,18 @@ let gameOver = () => {
   playGame();
 }
 
-let playgame = () => {
+//Função de início do jogo
+let playGame = () => {
   alert("Bem vindo ao Genius! Iniciando novo jogo!");
   score = 0;
 
   nextLevel();
 }
 
-green.addEventListener('click', click(0));
-red.addEventListener('click', click(1));
-yellow.addEventListener('click', click(2));
-blue.addEventListener('click', click(3));
+green.onclick = () => click(0);
+red.onclick = () => click(1);
+yellow.onclick = () => click(2);
+blue.onclick = () => click(3);
 
+//Início do jogo
 playGame();
